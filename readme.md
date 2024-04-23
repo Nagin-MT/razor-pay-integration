@@ -12,7 +12,7 @@ npm install
 npm start
 ```
 
-### 2. Server (Node.js)
+### 2. Client (React.js)
 
 ```bash
 cd app
