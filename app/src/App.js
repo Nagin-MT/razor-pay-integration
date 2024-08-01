@@ -28,7 +28,7 @@ function App() {
     }
 
     const result = await axios.post("http://localhost:5000/payment/new-order", {
-      amount: 50000,
+      amount: 1250 * 100,
       currency: "INR",
     });
 
@@ -45,7 +45,6 @@ function App() {
       currency: currency,
       name: "Razorpay Integration",
       description: "Test Transaction",
-      // image: { logo },
       order_id: order_id,
       handler: async function (response) {
         console.log("PAYMENT SUCCESSFULL: ", response);
@@ -59,7 +58,7 @@ function App() {
         address: "Ahmedabad, Gujarat",
       },
       theme: {
-        color: "#058616",
+        color: "#510076",
       },
     });
     paymentObject.open();
@@ -71,10 +70,16 @@ function App() {
         <p>Razor Pay</p>
         <button
           className="App-link"
-          style={{ cursor: "pointer", padding: "0.5rem 1rem" }}
+          style={{
+            cursor: "pointer",
+            fontWeight: 500,
+            padding: "1rem 2rem",
+            color: "black",
+            fontSize: "1.2rem",
+          }}
           onClick={displayRazorpay}
         >
-          Pay ₹500
+          Pay ₹1250
         </button>
       </header>
     </div>
