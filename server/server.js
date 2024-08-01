@@ -12,13 +12,28 @@ app.use(cors("*"));
 
 // Test Route
 app.get("/", (req, res) => {
-  return res.send(`Hello World.`);
+  return res.send(`Hello World`);
 });
 
 app.use(bodyParser.json());
 
+app.use((req, res, next) => {
+  console.log("-----------------------");
+  console.log("req: ", req.url);
+  next();
+});
+
 // imported routes
 app.use("/payment", payment);
+
+app.get("/testerror", (req, res) => {
+  return res.status(502).send({ status: 200, message: "This is working fine" });
+});
+
+app.get("*", async (req, res) => {
+  console.log("sdfjksndfksj");
+  return res.send({});
+});
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => console.log(`listening on PORT ${PORT}`));

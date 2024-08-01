@@ -10,7 +10,7 @@ const router = express.Router();
 const webhookSignature = "123456";
 const secret_key = "123456";
 
-router.get("/", (req, res) => {
+router.get("/webhook", (req, res) => {
   return res.send("payment router");
 });
 
